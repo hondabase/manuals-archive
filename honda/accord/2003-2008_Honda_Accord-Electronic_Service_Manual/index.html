@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honda Accord ESM (2003-2008)</title>
+    <link rel="stylesheet" href="css/app.css?v=zoom2">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="brand">
+                <img src="HondaESM.ico" alt="Honda Logo" class="logo">
+                <h1>Accord ESM</h1>
+            </div>
+            <div class="controls">
+                <select id="model-select">
+                    <option value="" disabled selected>Select Model</option>
+                </select>
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search topics...">
+                </div>
+            </div>
+        </header>
+        
+        <div class="main-layout">
+            <aside class="sidebar">
+                <nav id="tree-nav" class="tree-nav">
+                    <!-- Tree content will be injected here -->
+                    <div class="placeholder">Select a model to begin.</div>
+                </nav>
+            </aside>
+            
+            <main class="content-area">
+                <div id="breadcrumbs" class="breadcrumbs"></div>
+                <div id="content-viewer" class="content-viewer"></div>
+            </main>
+        </div>
+    </div>
+
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script src="js/app.js?v=zoom2"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+/* Modern overrides for legacy content */
+body {
+    font-family: sans-serif;
+    background-color: #fff;
+    margin: 20px;
+    overflow-y: auto; /* Allow scrolling */
+}
+
+/* Hide legacy UI elements that don't make sense in the new frame */
+input[type="image"][src*="GL_CANCEL.PNG"],
+input[type="image"][src*="PRINT_PREVIEW.PNG"],
+input[type="image"][src*="GL_PREV"],
+input[type="image"][src*="GL_NEXT"] {
+    display: none !important;
+}
+
+/* Ensure images fit */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix VML replacement styling if needed */
+div[id^="group"] {
+    /* Ensure the container doesn't overflow weirdly */
+    overflow: visible; 
+}
+
+/* Make tables look decent */
+table.Viewer {
+    border-collapse: collapse;
+}
+
+.ViewerTD {
+    padding: 10px;
+}

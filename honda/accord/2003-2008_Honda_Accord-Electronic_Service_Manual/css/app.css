@@ -1,0 +1,244 @@
+:root {
+    --header-height: 60px;
+    --sidebar-width: 350px;
+    --primary-color: #c00;
+    --text-color: #333;
+    --bg-color: #f4f4f4;
+    --sidebar-bg: #2c3e50;
+    --sidebar-text: #ecf0f1;
+    --sidebar-hover: #34495e;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.app-header {
+    height: var(--header-height);
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    height: 32px;
+}
+
+.brand h1 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+}
+
+select, input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.main-layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-viewer {
+    flex: 1;
+    overflow: auto;
+    background: white;
+    padding: 0; /* Reset padding as legacy content has its own margins */
+    position: relative;
+}
+
+.tree-nav {
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+.tree-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tree-item {
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tree-item:hover {
+    background-color: var(--sidebar-hover);
+}
+
+.tree-item.selected {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.tree-nav .tree-children {
+    padding-left: 20px;
+    display: none;
+}
+
+.tree-children.open {
+    display: block;
+}
+
+.tree-toggle {
+    display: inline-block;
+    width: 16px;
+    text-align: center;
+    margin-right: 4px;
+    color: #aaa;
+}
+
+.content-area {
+    flex: 1;
+    background-color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.breadcrumbs {
+    padding: 8px 20px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #555;
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.breadcrumbs span.sep {
+    margin: 0 5px;
+    color: #999;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    color: #0066cc;
+    cursor: pointer;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs .current {
+    color: #333;
+    font-weight: 600;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.placeholder {
+    padding: 20px;
+    color: #888;
+    text-align: center;
+}
+
+/* Lightbox Styles */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+}
+
+.lightbox-content {
+    max-width: 95%;
+    max-height: 95%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Zoomable Image Feedback */
+.zoomable {
+    cursor: zoom-in;
+    cursor: -webkit-zoom-in;
+    transition: transform 0.2s ease;
+}
+
+.zoomable:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
